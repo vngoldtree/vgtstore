@@ -1,0 +1,7 @@
+<% content_for :main_content do %>
+  <div data-hook="vgt_homepage_products">
+  <% cache(cache_key_for_products) do %>
+    <%= render :partial => 'spree/categories/category_layout_7', :locals => { :products => @products } %>
+  <% end %>
+</div>
+<% end %>
