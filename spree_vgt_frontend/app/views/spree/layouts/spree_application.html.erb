@@ -9,10 +9,12 @@
     <%= render partial: 'spree/shared/head' %>
   </head>
   <body data-hook="body">
-    <%= render partial: 'spree/shared/google_analytics.js' %>
-    <%= render partial: 'spree/shared/header' %>
-    <%= yield :main_content %>
-    <%= render partial: 'spree/shared/footer' %>
-    <%= render partial: 'spree/shared/load_js_files' %>
+    <div class="global-wrapper clearfix" id="global-wrapper">
+      <%= render partial: 'spree/shared/google_analytics.js' %>
+      <%= render partial: 'spree/shared/header' %>
+      <%= yield :main_content %>
+      <%= render partial: 'spree/shared/footer' %>
+      <%= render partial: 'spree/shared/load_js_files' %>
+    </div>
   </body>
 </html>
