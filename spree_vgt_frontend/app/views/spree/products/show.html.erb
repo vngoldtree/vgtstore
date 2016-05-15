@@ -46,6 +46,7 @@
             </div>
         </div>
         <div class="col-md-5">
+            <!--
             <div class="_box-highlight">
                 <ul class="product-page-product-rating">
                     <li class="rated"><i class="fa fa-star"></i>
@@ -60,12 +61,12 @@
                     </li>
                 </ul>
                 <p class="product-page-product-rating-sign"><a href="#">238 customer reviews</a>
-                </p>
-                <h1>Apple iPad Air 2nd Generation 9.7" 128GB</h1>
-                <p class="product-page-price">$399.99</p>
-                <p class="text-muted text-sm">Free Shipping</p>
-                <p class="product-page-desc-lg">Meet a stunning mobile computing experience in a very thin and lightweight Apple tablet PC. The iPad Air is powerful and efficient at the same time, thanks to its A7 chip and M7 motion coprocessor, on which the iOS 7 is running.</p>
-                <ul
+                </p>-->
+                <h1><%= @product.name %></h1>
+                <p class="product-page-price"><%= display_price(@product) %></p>
+                <!--<p class="text-muted text-sm">Free Shipping</p>-->
+                <p class="product-page-desc-lg"><%= product_description(@product) rescue Spree.t(:product_has_no_description) %></p>
+                <!--<ul
                 class="product-page-option-list">
                     <li class="clearfix">
                         <h5 class="product-page-option-title">Color</h5>
@@ -75,7 +76,7 @@
                             <option>Gold</option>
                         </select>
                     </li>
-                    </ul>
+                    </ul>-->
                     <ul class="product-page-actions-list">
                         <li class="product-page-qty-item">
                             <button class="product-page-qty product-page-qty-minus">-</button>
@@ -84,8 +85,8 @@
                         </li>
                         <li><a class="btn btn-lg btn-primary" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                         </li>
-                        <li><a class="btn btn-lg btn-default" href="#"><i class="fa fa-star"></i>Wishlist</a>
-                        </li>
+                        <!-- <li><a class="btn btn-lg btn-default" href="#"><i class="fa fa-star"></i>Wishlist</a>
+                        </li>-->
                     </ul>
             </div>
         </div>
@@ -97,8 +98,9 @@
             </li>
             <li><a href="#tab-2" data-toggle="tab">Additional Information</a>
             </li>
+            <!--
             <li><a href="#tab-3" data-toggle="tab">Rating and Reviews</a>
-            </li>
+            </li> -->
         </ul>
         <div class="tab-content">
             <div class="tab-pane fade in active" id="tab-1">
@@ -127,6 +129,7 @@
                     </tbody>
                 </table>
             </div>
+            <!--
             <div class="tab-pane fade" id="tab-3">
                 <div class="row">
                     <div class="col-md-8">
@@ -262,10 +265,11 @@
                         </nav>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="gap"></div>
+    <!--
     <h3 class="widget-title">You Might Also Like</h3>
     <div class="row" data-gutter="15">
         <div class="col-md-3">
@@ -654,7 +658,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 <div class="gap"></div>
 <% end %>
