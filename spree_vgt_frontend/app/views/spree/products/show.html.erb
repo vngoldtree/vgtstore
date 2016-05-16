@@ -1,3 +1,9 @@
+<%
+  medium_size = 'medium'
+  maximum_size = 'maximum'
+  small_size = 'small'
+%> 
+
 <% content_for :main_content do %>
 <div class="container">
     <header class="page-header">
@@ -15,31 +21,18 @@
         <div class="col-md-7">
             <div class="jqzoom-left clearfix">
                 <ul class="jqzoom-list">
+                    <% @product.images.each do |image| %>
                     <li>
-                        <a class="zoomThumbActive" href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: 'img/500x500.png', largeimage: 'img/800x800.png'}">
-                            <%= image_tag "100x100.png", :alt => "Image Alternative text", :title => "Image Title" %>
+                        <a class="<%= 'zoomThumbActive' if @product.images.first.id == image.id %>" href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: '<%= image.attachment.url(medium_size) %>', largeimage: '<%= image.attachment.url(maximum_size) %>'}">
+                            <%= image_tag image.attachment.url(small_size), :alt => "Image Alternative text", :title => "Image Title" %>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: 'img/500x500.png', largeimage: 'img/800x800.png'}">
-                            <%= image_tag "100x100.png", :alt => "Image Alternative text", :title => "Image Title" %>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: 'img/500x500.png', largeimage: 'img/800x800.png'}">
-                            <%= image_tag "100x100.png", :alt => "Image Alternative text", :title => "Image Title" %>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" data-rel="{gallery:'gal-1', smallimage: 'img/500x500.png', largeimage: 'img/800x800.png'}">
-                            <%= image_tag "100x100.png", :alt => "Image Alternative text", :title => "Image Title" %>
-                        </a>
-                    </li>
+                    <% end %>
                 </ul>
                 <div class="product-page-product-wrap jqzoom-stage jqzoom-stage-lg">
                     <div class="clearfix">
-                        <a href="img/800x800.png" id="jqzoom" data-rel="gal-1">
-                            <%= image_tag "100x100.png", :alt => "Image Alternative text", :title => "Image Title" %>
+                        <a href="<%= @product.images.first.attachment.url(maximum_size) %>" id="jqzoom" data-rel="gal-1">
+                            <%= image_tag @product.images.first.attachment.url(medium_size), :alt => "Image Alternative text", :title => "Image Title" %>
                         </a>
                     </div>
                 </div>
