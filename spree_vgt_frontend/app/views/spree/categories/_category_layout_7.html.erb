@@ -1,3 +1,8 @@
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= products
+%>
+
 <div class="container" data-hook="main_content">
     <header class="page-header" data-hook="main_content_header">
         <h1 class="page-title">Woman Watches</h1>
@@ -88,6 +93,11 @@
         </div>
     <% end %>
     </div>
+
+    <% if paginated_products.respond_to?(:num_pages) %>
+        <%= paginate paginated_products, theme: 'twitter-bootstrap-3' %>
+    <% end %>
+    <!--
     <div class="row" data-hook="main_content_footer">
         <div class="col-md-6">
             <nav>
@@ -108,4 +118,5 @@
             </nav>
         </div>
     </div>
+    -->
 </div>
