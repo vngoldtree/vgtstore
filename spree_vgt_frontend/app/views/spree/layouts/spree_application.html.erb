@@ -11,7 +11,7 @@
   <body data-hook="body">
     <div class="global-wrapper clearfix" id="global-wrapper">
       <%= render partial: 'spree/shared/google_analytics.js' %>
-      <%= render partial: 'spree/shared/header' %>
+      <%= yield :header_content %>
       <%= yield :main_content %>
       <%= render partial: 'spree/shared/footer' %>
       <%= render partial: 'spree/shared/load_js_files' %>

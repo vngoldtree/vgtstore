@@ -4,6 +4,10 @@
   small_size = 'small'
 %> 
 
+<% content_for :header_content do %>
+    <%= render partial: 'spree/shared/header' %>
+<% end %>
+
 <% content_for :main_content do %>
 <div class="container">
     <header class="page-header">

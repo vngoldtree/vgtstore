@@ -1,3 +1,7 @@
+<% content_for :header_content do %>
+	<%= render partial: 'spree/shared/header' %>
+<% end %>
+
 <% content_for :main_content do %>
   <div data-hook="vgt_homepage_products">
   <% cache(cache_key_for_products) do %>
