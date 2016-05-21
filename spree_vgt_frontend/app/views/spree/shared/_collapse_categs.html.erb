@@ -1,0 +1,29 @@
+<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+<% primary_categ_id = 1 %>
+<% categs = @taxonomies.where('id = ?', primary_categ_id)[0].root.children %>
+
+
+<% categs.map do |categ| %>
+	<li><a href="<%= seo_url(categ) %>"><i class="fa <%= categ.icon_class %> dropdown-menu-category-icon"></i><%= categ.name %></a>
+		<div class="dropdown-menu-category-section">
+            <div class="dropdown-menu-category-section-inner">
+                <div class="dropdown-menu-category-section-content">
+                    <div class="row">
+                    	<% categ.children.map do |categ1| %>
+                        <div class="col-md-6">
+                            <h5 class="dropdown-menu-category-title"><%= categ1.name %></h5>
+                            <ul class="dropdown-menu-category-list">
+                            	<% categ1.children.map do |categ2| %>
+                                <li><a href="<%= seo_url(categ2) %>"><%= categ2.name %></a>
+                                    <p><%= categ2.description %></p>
+                                </li>
+                                <% end %>
+                            </ul>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</li>
+<% end %>

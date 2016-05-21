@@ -1,0 +1,19 @@
+<% content_for :page_title do %>
+	<h1 class="page-title">Woman Watches</h1>
+<% end %>
+
+<% content_for :header_content do %>
+	<%= render partial: 'spree/shared/header' %>
+<% end %>
+
+<% content_for :list_categs do %>
+	<%= render partial: 'spree/shared/list_categs' %>
+<% end %>
+
+<% content_for :main_content do %>
+  <div data-hook="vgt_homepage_products">
+  <% cache(cache_key_for_products) do %>
+    <%= render :partial => 'spree/categories/category_layout_7', :locals => { :products => @products } %>
+  <% end %>
+</div>
+<% end %>
