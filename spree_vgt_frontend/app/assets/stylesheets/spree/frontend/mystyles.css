@@ -1,1 +1,4 @@
 /*YOUR CUSTOM STYLES*/
+a.active {
+	color: #595959 !important;
+}

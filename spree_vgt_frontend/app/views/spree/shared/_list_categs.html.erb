@@ -1,11 +1,6 @@
 <ol class="breadcrumb page-breadcrumb">
-    <li><a href="#">Home</a>
+	<% @parent_taxons.reverse_each do |parent_categ| %>
+    <li><a <%= 'class=active' if parent_categ.id == @taxon.id %> href="<%= seo_url(parent_categ) %>"><%= parent_categ.name %></a>
     </li>
-    <li><a href="#">Fashion</a>
-    </li>
-    <li><a href="#">Woman</a>
-    </li>
-    <li><a href="#">Accessories</a>
-    </li>
-    <li class="active">Watches</li>
+    <% end %>
 </ol>
