@@ -11,15 +11,7 @@
 <% content_for :main_content do %>
 <div class="container">
     <header class="page-header">
-        <ol class="breadcrumb page-breadcrumb">
-            <li><a href="#">Home</a>
-            </li>
-            <li><a href="#">Electronics</a>
-            </li>
-            <li><a href="#">Computers/Tables</a>
-            </li>
-            <li class="active">Apple iPad Air 2nd Generation 9.7" 128GB</li>
-        </ol>
+        <%= render partial: 'spree/shared/list_categs' %>
     </header>
     <div class="row">
         <div class="col-md-7">
