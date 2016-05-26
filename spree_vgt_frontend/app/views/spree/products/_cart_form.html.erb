@@ -1,0 +1,12 @@
+<%= form_for :order, :url => populate_orders_path do |f| %>
+<%= hidden_field_tag "variant_id", @product.master.id %>
+<ul class="product-page-actions-list">
+	 <!--<%= number_field_tag :quantity, 1, :class => 'title form-control', :min => 1 %>-->
+    <li class="product-page-qty-item">
+    	<%= number_field_tag :quantity, 1, :class => "product-page-qty product-page-qty-input", :min => 1 %>
+    </li>
+    <li><%= button_tag :class => "btn btn-lg btn-primary", :id => 'add-to-cart-button', :type => :submit do %>
+    	<%= Spree.t(:add_to_cart) %></li>
+  	<% end %>
+</ul>
+<% end %>

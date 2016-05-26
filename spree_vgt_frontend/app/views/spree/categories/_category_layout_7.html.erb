@@ -8,13 +8,16 @@
     <header class="page-header" data-hook="main_content_header">
         <%= yield :page_title %>
         <%= yield :list_categs %>
+        <% if not (@products == nil or @products.size <= 1) %>
         <ul class="category-selections clearfix">
+            <!--
             <li>
                 <a class="fa fa-th-large category-selections-icon active" href="#"></a>
             </li>
             <li>
                 <a class="fa fa-th-list category-selections-icon" href="#"></a>
             </li>
+            -->
             <li><span class="category-selections-sign">Sort by :</span>
                 <select class="category-selections-select">
                     <option selected>Newest First</option>
@@ -26,7 +29,7 @@
                     <option>Title : A - Z</option>
                     <option>Title : Z - A</option>
                 </select>
-            </li>
+            </li> 
             <!--
             <li><span class="category-selections-sign">Items :</span>
                 <select class="category-selections-select">
@@ -38,6 +41,7 @@
             </li>
             -->
         </ul>
+        <% end %>
     </header>
     <div class="gap gap-small"></div>
     <div data-hook="main_content_body">
