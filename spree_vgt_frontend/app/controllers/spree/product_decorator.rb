@@ -12,7 +12,6 @@ module Spree
 					@parent_taxons << tmp
 				end
 			end
-			@taxonomies = Spree::Taxonomy.includes(root: :children)
 			return orig_show
 		end
 	end

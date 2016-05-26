@@ -1,6 +1,7 @@
 <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
 <% primary_categ_id = 1 %>
-<% categs = @taxonomies.where('id = ?', primary_categ_id)[0].root.children %>
+<% taxonomies = Spree::Taxonomy.includes(root: :children) %>
+<% categs = taxonomies.where('id = ?', primary_categ_id)[0].root.children %>
 
 
 <% categs.map do |categ| %>
