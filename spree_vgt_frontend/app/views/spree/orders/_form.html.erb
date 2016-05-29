@@ -1,0 +1,28 @@
+<div class="col-md-10">
+<table class="table table table-shopping-cart">
+  <thead>
+    <tr class="active" data-hook="cart_items_headers">
+      <th class="cart-item-description-header" colspan="2"><%= Spree.t(:item) %></th>
+      <th>Color</th>
+      <th class="cart-item-price-header"><%= Spree.t(:price) %></th>
+      <th class="cart-item-quantity-header"><%= Spree.t(:qty) %></th>
+      <th class="cart-item-total-header"><%= Spree.t(:total) %></th>
+      <th class="cart-item-delete-header"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+  </tbody>
+</table>
+<div class="gap gap-small"></div>
+</div>
+<div class="col-md-2">
+  <ul class="shopping-cart-total-list">
+      <li><span><%= Spree.t(:total) %></span><span><%= order_form.object.display_total %></span>
+      </li>
+      <li><span>Shopping</span><span>Free</span>
+      </li>
+  </ul>
+  <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %><%= Spree.t(:checkout) %>
+  <% end %>
+</div>
